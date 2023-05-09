@@ -84,6 +84,13 @@ build CMakeFiles/complex_calculator.dir/core/utils.c.obj: C_COMPILER__complex_ca
   OBJECT_DIR = CMakeFiles\complex_calculator.dir
   OBJECT_FILE_DIR = CMakeFiles\complex_calculator.dir\core
 
+build CMakeFiles/complex_calculator.dir/core/varibleManager.c.obj: C_COMPILER__complex_calculator_Debug C$:/Users/Enterprice/CLionProjects/complex_calculator/core/varibleManager.c || cmake_object_order_depends_target_complex_calculator
+  DEP_FILE = CMakeFiles\complex_calculator.dir\core\varibleManager.c.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu11
+  INCLUDES = -IC:/Users/Enterprice/CLionProjects/complex_calculator/core
+  OBJECT_DIR = CMakeFiles\complex_calculator.dir
+  OBJECT_FILE_DIR = CMakeFiles\complex_calculator.dir\core
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target complex_calculator
@@ -92,7 +99,7 @@ build CMakeFiles/complex_calculator.dir/core/utils.c.obj: C_COMPILER__complex_ca
 #############################################
 # Link the executable complex_calculator.exe
 
-build complex_calculator.exe: C_EXECUTABLE_LINKER__complex_calculator_Debug CMakeFiles/complex_calculator.dir/core/complex.c.obj CMakeFiles/complex_calculator.dir/core/stack.c.obj CMakeFiles/complex_calculator.dir/core/toPostfix.c.obj CMakeFiles/complex_calculator.dir/main.c.obj CMakeFiles/complex_calculator.dir/core/utils.c.obj
+build complex_calculator.exe: C_EXECUTABLE_LINKER__complex_calculator_Debug CMakeFiles/complex_calculator.dir/core/complex.c.obj CMakeFiles/complex_calculator.dir/core/stack.c.obj CMakeFiles/complex_calculator.dir/core/toPostfix.c.obj CMakeFiles/complex_calculator.dir/main.c.obj CMakeFiles/complex_calculator.dir/core/utils.c.obj CMakeFiles/complex_calculator.dir/core/varibleManager.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\complex_calculator.dir

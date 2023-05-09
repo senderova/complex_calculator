@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "utils.h"
-
+#include "varibleManager.h"
 
 int main(int argc, char* argv[])
 {
@@ -33,6 +33,7 @@ int main(int argc, char* argv[])
         // Put release code here
         //
         greeting();
+        Variable variable_pool[MAX_VARIABLE_POOL_SIZE];
         char infix[100],postfix[100];
         while (1)
         {
@@ -47,10 +48,17 @@ int main(int argc, char* argv[])
         //
         // Put debug code here
         //
+        ret_arrow();
+        Variable variable_pool[MAX_VARIABLE_POOL_SIZE];
         char infix[100],postfix[100];
-        gets(infix);
-        infix_to_postfix(infix,postfix);
-        printf("%s",postfix);
+        Variable a = {"a1", "1 2 /"};
+        Variable b = {"b1", "a1 3 *"};
+        Variable c = create_variable("c", "15 2 +")
+        variable_pool[0] = a;
+        variable_pool[1] = b;
+        eval(&b, 2, variable_pool);
+
+
         return 0;
     }
 }
