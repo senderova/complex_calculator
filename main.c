@@ -48,17 +48,14 @@ int main(int argc, char* argv[])
         //
         // Put debug code here
         //
-        ret_arrow();
         Variable variable_pool[MAX_VARIABLE_POOL_SIZE];
+        int number_of_variables = 0;
         char infix[100],postfix[100];
-        Variable a = {"a1", "1 2 /"};
-        Variable b = {"b1", "a1 3 *"};
-        Variable c = create_variable("c", "15 2 +")
-        variable_pool[0] = a;
-        variable_pool[1] = b;
-        eval(&b, 2, variable_pool);
 
-
+        ret_arrow();
+        Variable a = create_variable("a12", "15 2 +", &number_of_variables, variable_pool);
+        Variable b = create_variable("b15", "15 2 -", &number_of_variables, variable_pool);
+        Print_Pool(number_of_variables, variable_pool);
         return 0;
     }
 }

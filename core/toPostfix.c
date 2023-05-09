@@ -11,7 +11,9 @@ int operation_priority(char ch)
         return 2;
     else if(ch == '^')
         return 3;
-    return 4;
+    else if(ch == '~')
+        return 4;
+    return 5;
 }
 
 void infix_to_postfix(char infix[],char postfix[])
@@ -23,7 +25,7 @@ void infix_to_postfix(char infix[],char postfix[])
     for(i = 0; infix[i] != '\0'; i++)
     {
         token = infix[i];
-        if(isalnum(token))
+        if(isalnum(token) || token == '.')
         {
             postfix[j++] = token;
         }
@@ -41,6 +43,10 @@ void infix_to_postfix(char infix[],char postfix[])
                 }
             else
             {
+                if (token == '-' && (i == 0 || infix[i - 1] == '('))
+                {
+                    token = '~';
+                }
                 while(operation_priority(token) <= operation_priority(GetTop(&stack)) && !IsEmpty(&stack))
                 {
                     x = Pop(&stack);

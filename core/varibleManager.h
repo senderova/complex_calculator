@@ -12,7 +12,7 @@ typedef struct {
     Expression expression;
 } Variable;
 
-Variable create_variable(char *name, char *expression);
+Variable create_variable(char *name, char *expression, int *num_of_vars, Variable pool[*num_of_vars]);
 
 Complex* eval(Variable *var, int num_of_vars, Variable pool[num_of_vars]);
 

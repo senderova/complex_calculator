@@ -21,13 +21,16 @@ Complex* eval(Variable *var, int num_of_vars, Variable pool[num_of_vars])
     return res;
 }
 
-Variable create_variable(char *name, char *expression)
+Variable create_variable(char *name, char *expression, int *num_of_vars, Variable pool[*num_of_vars])
 {
     Variable *var = (Variable*)malloc(sizeof(Variable));
     var->name = name;
     var->expression.exp = expression;
+    pool[*num_of_vars] = *var;
+    (*num_of_vars)++;
     return *var;
 }
+
 
 void Print_Pool(int num_of_vars, Variable pool[num_of_vars])
 {
