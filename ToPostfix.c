@@ -15,7 +15,7 @@ int operation_priority(char ch)
         return 0;
     else if(ch == '+' || ch == '-')
         return 1;
-    else if(ch == '*' || ch == '/')
+    else if(ch == '*' || ch == '/' || ch == '%')
         return 2;
     else if(ch == '^')
         return 3;
