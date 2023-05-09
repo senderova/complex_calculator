@@ -1,5 +1,10 @@
 #include<ctype.h>
 #include "stack.h"
+#include "toPostfix.h"
+#include "utils.h"
+#include <stdlib.h>
+#include <string.h>
+
 
 int operation_priority(char ch)
 {
@@ -66,3 +71,73 @@ void infix_to_postfix(char infix[],char postfix[])
     postfix[j]='\0';
 }
 
+int strIsAlpha(char *str)
+{
+    for (int i = 0; i < strlen(str); i++)
+    {
+        if (isalpha(str[i]) == 0)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int strIsDigit(char *str)
+{
+    for (int i = 0; i < strlen(str); i++)
+    {
+        if (isdigit(str[i]) == 0)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+Token* CreateToken(char* type, char* value)
+{
+    Token* token = malloc(sizeof(Token));
+    token->type = type;
+    token->value = value;
+    return token;
+}
+
+char* GetType(char* value)
+{
+    if (strIsDigit(value))
+    {
+        // int
+        return "NUMBER";
+    }
+    else if (strIsAlpha(value))
+    {
+        // Functions
+        if ((strcmp(value, "sin") == 0))
+        { return "FUNCTION"; }
+        if ((strcmp(value, "cos") == 0))
+        { return "FUNCTION"; }
+        if ((strcmp(value, "ln") == 0))
+        {  return "FUNCTION"; }
+        if ((strcmp(value, "exp") == 0))
+        {  return "FUNCTION"; }
+
+        // Variables
+        return "VARIABLE";
+    }
+    else
+    {
+        // operators
+        if ((strcmp(value, "+") == 0))
+        {  return "OPERATOR"; }
+        if ((strcmp(value, "-") == 0))
+        {  return "OPERATOR"; }
+        if ((strcmp(value, "*") == 0))
+        {  return "OPERATOR"; }
+        if ((strcmp(value, "/") == 0))
+        {  return "OPERATOR"; }
+        // error
+        printf("Error: unknown symbol: %s\n", value);
+        exit(-1);
+    }
+}

@@ -3,6 +3,7 @@
 #include <string.h>
 #include "utils.h"
 #include "varibleManager.h"
+#include <stdlib.h>
 
 int main(int argc, char* argv[])
 {
@@ -33,14 +34,48 @@ int main(int argc, char* argv[])
         // Put release code here
         //
         greeting();
+
+        // Parsing
         Variable variable_pool[MAX_VARIABLE_POOL_SIZE];
-        char infix[100],postfix[100];
-        while (1)
-        {
+        Token token_pool[MAX_TOKEN_POOL_SIZE];
+        int number_of_variables = 0;
+        char infix[MAX_INFIX_SIZE],postfix[MAX_POSTFIX_SIZE];
+        clear_string(infix, MAX_INFIX_SIZE); clear_string(postfix, MAX_POSTFIX_SIZE);
+        // Tokenizer
+        int token_pool_id = 0;
+        // Misc
+        create_variable("pi", "3.141592653589793", &number_of_variables, variable_pool);
+        create_variable("e", "2.718281828459045", &number_of_variables, variable_pool);
+        // start echo
+        while (1) {
             ret_arrow();
             gets(infix);
             infix_to_postfix(infix,postfix);
-            printf("%s\n",postfix);
+            Print_Pool(number_of_variables, variable_pool);
+            printf("%s\n", postfix);
+
+            // tokenizer
+
+            char *tokenizer = strtok(postfix, " ");
+            token_pool[token_pool_id] = *CreateToken(GetType(tokenizer), tokenizer);
+            token_pool_id++;
+            while (tokenizer != NULL)
+            {
+                tokenizer = strtok(NULL, " ");
+                if (tokenizer == NULL){ break;}
+                token_pool[token_pool_id] = *CreateToken(GetType(tokenizer), tokenizer);
+                token_pool_id++;
+            }
+
+            // empty cache
+            for (int i = 0; i < MAX_INFIX_SIZE; i++)
+            {
+                infix[i] = '\0';
+            }
+            for (int i = 0; i < MAX_POSTFIX_SIZE; i++)
+            {
+                postfix[i] = '\0';
+            }
         }
     }
     else
@@ -50,7 +85,7 @@ int main(int argc, char* argv[])
         //
         Variable variable_pool[MAX_VARIABLE_POOL_SIZE];
         int number_of_variables = 0;
-        char infix[100],postfix[100];
+        char infix[MAX_INFIX_SIZE],postfix[MAX_POSTFIX_SIZE];
 
         ret_arrow();
         Variable a = create_variable("a12", "15 2 +", &number_of_variables, variable_pool);

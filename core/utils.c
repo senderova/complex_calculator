@@ -17,3 +17,11 @@ void ret_arrow()
 {
     printf(">>> ");
 }
+
+void clear_string(char *str, int i)
+{
+    for (int j = 0; j < i; j++)
+    {
+        str[j] = '\0';
+    }
+}
