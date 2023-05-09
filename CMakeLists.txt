@@ -8,7 +8,7 @@ include_directories(core)
 add_executable(complex_calculator
         core/complex.c
         core/complex.h
-        core/stackAndTokens.c
-        core/stackAndTokens.h
-        core/ToPostfix.c
-        main.c core/ToPostfix.h)
+        core/stack.c
+        core/stack.h
+        core/toPostfix.c
+        main.c core/toPostfix.h)
