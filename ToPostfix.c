@@ -78,7 +78,7 @@ void infix_to_postfix(char infix[],char postfix[])
     for(i = 0; infix[i] != '\0'; i++)
     {
         token = infix[i];
-        if(isalnum(token))
+        if(isalnum(token) || token == '.')
         {
             postfix[j++] = token;
         }
