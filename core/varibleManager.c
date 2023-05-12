@@ -179,7 +179,7 @@ Complex* eval(Token *token_pool, int *num_of_vars, Variable pool[*num_of_vars])
         }
     }
     // Second case
-    if (strcmp(token_pool[0].type, "VARIABLE") == 0 && len_of_tokens == 1)
+    else if (strcmp(token_pool[0].type, "VARIABLE") == 0 && len_of_tokens == 1)
     {
         // return value
         int index = getVariableIndex(token_pool[0].value, *num_of_vars, pool);

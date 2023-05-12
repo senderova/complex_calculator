@@ -89,7 +89,7 @@ void PushComplexStack(ComplexStack *stk, Complex *tk)
     }
     else
     {
-        printf("Stack overflow error, total amount of elements is: %d !\n", stk->top);
+        printf("Complex Stack overflow error, total amount of elements is: %d !\n", stk->top);
         exit(-6);
     }
 }
@@ -105,7 +105,7 @@ Complex PopComplexStack(ComplexStack *stk)
     }
     else
     {
-        printf("Stack is empty!\n");
+        printf("Complex Stack is empty!\n");
         exit(-5);
         return pelem; // todo exit
     }
@@ -119,6 +119,6 @@ Complex GetComplexStackTop(ComplexStack *stk)
     }
     else
     {
-        printf("Stack is empty!\n");
+        printf("Complex Stack is empty!\n");
     }
 }

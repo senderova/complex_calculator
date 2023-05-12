@@ -7,3 +7,16 @@
 65	129	7053530313076228	complex_calculator.exe	58cf10f1b9beac08
 6	81	7053443773484650	CMakeFiles/complex_calculator.dir/core/utils.c.obj	b03a73df645cf17a
 2	59	7053341433642030	CMakeFiles/complex_calculator.dir/core/varibleManager.c.obj	c2fa9bdace88e108
+27	183	7056295766805023	CMakeFiles/complex_calculator.dir/core/token.c.obj	7160749525c1febd
+21	191	7056295766883133	CMakeFiles/complex_calculator.dir/core/utils.c.obj	42804e022666a154
+35	235	7056295767289558	CMakeFiles/complex_calculator.dir/core/operations.c.obj	e9f263537859a657
+8	262	7056295767588780	CMakeFiles/complex_calculator.dir/core/stack.c.obj	49979496a8d50db6
+17	263	7056295767600972	CMakeFiles/complex_calculator.dir/main.c.obj	dc53a01e9a0fcd8
+3	271	7056295767687102	CMakeFiles/complex_calculator.dir/core/complex.c.obj	12568ca6168aec6f
+12	288	7056295767874442	CMakeFiles/complex_calculator.dir/core/toPostfix.c.obj	c499058daaf493
+43	306	7056295768062893	CMakeFiles/complex_calculator.dir/core/varibleManager.c.obj	3a3ee2af8501e018
+307	501	7056295769954013	complex_calculator.exe	63443a3de44ff686
+1	68	7056296681620197	CMakeFiles/complex_calculator.dir/core/stack.c.obj	49979496a8d50db6
+69	164	7056296682529877	complex_calculator.exe	63443a3de44ff686
+2	76	7056299760291208	CMakeFiles/complex_calculator.dir/core/varibleManager.c.obj	3a3ee2af8501e018
+76	144	7056299760961052	complex_calculator.exe	63443a3de44ff686
