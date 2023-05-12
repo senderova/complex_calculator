@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/complex_calculator.iml" filepath="$PROJECT_DIR$/.idea/complex_calculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ComplexCalc.iml" filepath="$PROJECT_DIR$/.idea/ComplexCalc.iml" />
     </modules>
   </component>
 </project>

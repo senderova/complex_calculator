@@ -1,21 +1,36 @@
 #pragma once
 
 #include "config.h"
+#include "token.h"
+#include "complex.h"
 
-typedef struct Stack
-{
-    int data[MAX_STACK_SIZE];
+typedef struct Stack {
+    Token data[MAX_STACK_SIZE];
     int top;
-}Stack;
+} Stack;
 
-void Initialize(Stack *stack);
+typedef struct {
+    Complex data[MAX_STACK_SIZE];
+    int top;
+} ComplexStack;
 
-int IsEmpty(Stack *stack);
 
-int IsFull(Stack *stack);
+void InitializeStack(Stack *stack);
 
-void Push(Stack *stack, int x);
+int IsStackEmpty(Stack *stk);
 
-int Pop(Stack *stack);
+void PushStack(Stack *stk, Token *tk);
 
-int GetTop(Stack *stack);
+Token PopStack(Stack *stk);
+
+Token GetStackTop(Stack *stk);
+
+void InitializeComplexStack(ComplexStack *stack);
+
+int IsComplexStackEmpty(ComplexStack *stk);
+
+void PushComplexStack(ComplexStack *stk, Complex *tk);
+
+Complex PopComplexStack(ComplexStack *stk);
+
+Complex GetComplexStackTop(ComplexStack *stk);

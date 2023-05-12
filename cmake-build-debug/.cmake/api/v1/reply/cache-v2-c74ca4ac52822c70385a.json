@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/Enterprice/CLionProjects/complex_calculator/cmake-build-debug"
+			"value" : "c:/Users/Enterprice/Documents/Programing/Projects/ComplexCalc/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -431,7 +431,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Enterprice/CLionProjects/complex_calculator/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/Enterprice/Documents/Programing/Projects/ComplexCalc/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -503,7 +503,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/Enterprice/CLionProjects/complex_calculator"
+			"value" : "C:/Users/Enterprice/Documents/Programing/Projects/ComplexCalc"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1131,7 +1131,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Enterprice/CLionProjects/complex_calculator/cmake-build-debug"
+			"value" : "C:/Users/Enterprice/Documents/Programing/Projects/ComplexCalc/cmake-build-debug"
 		},
 		{
 			"name" : "complex_calculator_IS_TOP_LEVEL",
@@ -1155,7 +1155,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Enterprice/CLionProjects/complex_calculator"
+			"value" : "C:/Users/Enterprice/Documents/Programing/Projects/ComplexCalc"
 		}
 	],
 	"kind" : "cache",

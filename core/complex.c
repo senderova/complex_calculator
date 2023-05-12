@@ -14,6 +14,10 @@ void PrintComplex(Complex value)
     {
         printf("- %lfi\n", value.imag);
     }
+    else
+    {
+        printf("\n");
+    }
 }
 
 Complex ComplexRelated(Complex value)
