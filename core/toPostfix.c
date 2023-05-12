@@ -259,6 +259,8 @@ char* GetType(char* value)
     {  return "OPERATOR"; }
     if ((strcmp(value, "=") == 0))
     {  return "OPERATOR"; }
+    if ((strcmp(value, "^") == 0))
+    {  return "OPERATOR"; }
 
     // Variables
     if (strIsAlpha(value))
