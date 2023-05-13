@@ -38,42 +38,44 @@ int getVariableIndex(char* target, int num_of_vars, Variable pool[num_of_vars])
 
 Complex FromTokenToComplex(Token* token, int num_of_vars, Variable pool[num_of_vars])
 {
-    Complex result;
+    Complex* result = malloc(sizeof(Complex));
+    result->real = 0.123456789;
+    result->imag = 0.123456789;
     if (strcmp(token->type, "NUMBER")==0)
     {
-        result.real = strtod(token->value, NULL);
-        result.imag = 0;
-        return result;
+        result->real = strtod(token->value, NULL);
+        result->imag = 0;
+        return *result;
     }
     if (strcmp(token->type, "COMPLEX")==0)
     {
-        result.real = 0;
+        result->real = 0;
         if (strlen(token->value) == 1)
         {
-            result.imag = 1;
+            result->imag = 1;
         }
         else
         {
             char buffer[MAX_TOKEN_VALUE_LEN];
             strcpy(token->value, buffer);
             buffer[strlen(buffer)-2] = '\0';
-            result.imag = strtod(token->value, NULL);
+            result->imag = strtod(token->value, NULL);
         }
-        return result;
+        return *result;
     }
     if (strcmp(token->type, "VARIABLE")==0)
     {
         if (getVariableIndex(token->value, num_of_vars, pool) != -1)
         {
-            result = pool[getVariableIndex(token->value, num_of_vars, pool)].expression.value;
-            return result;
-        }
-        else
-        {
-            printf("Variable <%s> not found\n", token->value);
+            Complex temp = pool[getVariableIndex(token->value, num_of_vars, pool)].expression.value;
+            if (pool[getVariableIndex(token->value, num_of_vars, pool)].expression.is_calculated == 0)
+            {return *result;}
+            result->imag = temp.imag;
+            result->real = temp.real;
+            return *result;
         }
     }
-    return result;
+    return *result;
 }
 
 
@@ -97,7 +99,10 @@ Complex CalculateExpression(Expression expression, int num_of_vars, Variable poo
     {
         if (strcmp(expression.exp[i].type, "FUNCTION")==0)
         {
+            if (reverse_rpn.top == 0) {return *result;}
             Complex current_token = PopComplexStack(&reverse_rpn);
+            if (current_token.imag == 0.123456789 && current_token.real == 0.123456789)
+            {return *result;}
             Complex *new_token = malloc(sizeof(Complex));
             new_token = unary_operations(&expression.exp[i], &current_token);
             PushComplexStack(&reverse_rpn, new_token);
@@ -107,8 +112,13 @@ Complex CalculateExpression(Expression expression, int num_of_vars, Variable poo
         if (strcmp(expression.exp[i].type, "OPERATOR")==0)
         {
             // Prepare data
+            if (reverse_rpn.top == 1){return *result;}
             Complex right_value = PopComplexStack(&reverse_rpn);
+            if (right_value.imag == 0.123456789 && right_value.real == 0.123456789)
+            {return *result;}
             Complex left_value = PopComplexStack(&reverse_rpn);
+            if (left_value.imag == 0.123456789 && left_value.real == 0.123456789)
+            {return *result;}
             // Calculate the result
             left_value = binary_operations(&expression.exp[i], &left_value, &right_value);
             PushComplexStack(&reverse_rpn, &left_value);
@@ -116,6 +126,8 @@ Complex CalculateExpression(Expression expression, int num_of_vars, Variable poo
         }
         Complex *next = malloc(sizeof(Complex));
         Complex converted = FromTokenToComplex(&expression.exp[i], num_of_vars, pool);
+        if (converted.imag == 0.123456789 && converted.real == 0.123456789)
+        {return *result;}
         next->real = converted.real;
         next->imag = converted.imag;
         PushComplexStack(&reverse_rpn, next);
@@ -132,6 +144,8 @@ Complex CalculateExpression(Expression expression, int num_of_vars, Variable poo
 Complex* eval(Token *token_pool, int *num_of_vars, Variable pool[*num_of_vars])
 {
     // 0) Recalculate previous variables
+    for (int j = 0; j< COSTblL; j++)
+    {
     for (int i = 0; i < *num_of_vars; i++)
     {
         if (pool[i].expression.is_calculated){ continue;}
@@ -139,7 +153,7 @@ Complex* eval(Token *token_pool, int *num_of_vars, Variable pool[*num_of_vars])
         if (pool[i].expression.value.real != 0.123456789 && pool[i].expression.value.imag != 0.123456789)
         {pool[i].expression.is_calculated = 1;}
     }
-
+    }
     // 1) Get a len of array with tokens
     int len_of_tokens = 0;
     for (int i = 0; TokenTypeIsGood(token_pool[i]); i++){len_of_tokens++;}
@@ -176,6 +190,8 @@ Complex* eval(Token *token_pool, int *num_of_vars, Variable pool[*num_of_vars])
             strcpy(name, token_pool[0].value);
             create_variable(name, new+2, num_of_vars, pool);
             pool[*num_of_vars].expression.is_calculated = 0;
+            pool[*num_of_vars].expression.value.real = 0.123456789;
+            pool[*num_of_vars].expression.value.imag = 0.123456789;
         }
     }
     // Second case
@@ -195,7 +211,8 @@ Complex* eval(Token *token_pool, int *num_of_vars, Variable pool[*num_of_vars])
             // does not calculate
             else
             {
-                PrintExpression(pool[index].expression);
+                printf("It cannot be calculated now\n");
+                //PrintExpression(pool[index].expression);
             }
 
 
@@ -209,6 +226,7 @@ Complex* eval(Token *token_pool, int *num_of_vars, Variable pool[*num_of_vars])
 
     else
     {
+        // third case, just calculate
         Complex* result = malloc(sizeof(Complex));
         result->real = 0.123456789;
         result->imag = 0.123456789;
@@ -222,6 +240,7 @@ Complex* eval(Token *token_pool, int *num_of_vars, Variable pool[*num_of_vars])
         {
             if (strcmp(token_pool[i].type, "FUNCTION")==0)
             {
+                if (reverse_rpn.top == 0){return result;}
                 Complex current_token = PopComplexStack(&reverse_rpn);
                 Complex *new_token = malloc(sizeof(Complex));
                 new_token = unary_operations(&token_pool[i], &current_token);
@@ -232,6 +251,7 @@ Complex* eval(Token *token_pool, int *num_of_vars, Variable pool[*num_of_vars])
             if (strcmp(token_pool[i].type, "OPERATOR")==0)
             {
                 // Prepare data
+                if (reverse_rpn.top == 1){return result;}
                 Complex right_value = PopComplexStack(&reverse_rpn);
                 Complex left_value = PopComplexStack(&reverse_rpn);
                 // Calculate the result
@@ -241,6 +261,9 @@ Complex* eval(Token *token_pool, int *num_of_vars, Variable pool[*num_of_vars])
             }
             Complex *next = malloc(sizeof(Complex));
             Complex converted = FromTokenToComplex(&token_pool[i], *num_of_vars, pool);
+            // cannot be calculated
+            if (converted.real == 0.123456789 && converted.imag == 0.123456789)
+            { return result;}
             next->real = converted.real;
             next->imag = converted.imag;
             PushComplexStack(&reverse_rpn, next);

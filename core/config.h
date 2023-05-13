@@ -7,3 +7,4 @@
 #define MAX_TOKEN_POOL_SIZE 256
 #define MAX_TOKEN_VALUE_LEN 32
 #define MAX_TOKEN_TYPE_LEN 10
+#define COSTblL 5
