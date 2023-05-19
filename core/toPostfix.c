@@ -1,4 +1,4 @@
-#include<ctype.h>
+#include <ctype.h>
 #include "stack.h"
 #include "toPostfix.h"
 #include "utils.h"
@@ -248,6 +248,7 @@ char* GetType(char* value)
     if ((strcmp(value, "phase") == 0))
     {  return "FUNCTION"; }
 
+
     // operators
     if ((strcmp(value, "+") == 0))
     {  return "OPERATOR"; }
@@ -260,6 +261,8 @@ char* GetType(char* value)
     if ((strcmp(value, "=") == 0))
     {  return "OPERATOR"; }
     if ((strcmp(value, "^") == 0))
+    {  return "OPERATOR"; }
+    if ((strcmp(value, "~") == 0))
     {  return "OPERATOR"; }
 
     // Variables

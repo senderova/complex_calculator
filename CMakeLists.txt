@@ -11,4 +11,4 @@ add_executable(complex_calculator
         core/stack.c
         core/stack.h
         core/toPostfix.c
-        main.c core/toPostfix.h core/utils.h core/utils.c core/varibleManager.h core/varibleManager.c core/token.h core/token.c core/operations.h core/operations.c)
+        main.c core/toPostfix.h core/utils.h core/utils.c core/varibleManager.h core/varibleManager.c core/token.h core/token.c core/operations.h core/operations.c run_tests.c)
