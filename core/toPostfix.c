@@ -88,7 +88,18 @@ void infix_to_postfix(char *infix, char *postfix)
             }
             else
             {
-                if (infix[i] == '-' && (i == 0 || infix[i - 1] == '('))
+                char last_not_space = '\0';
+                for (int z = i-1; z >= 0; z--)
+                {
+                    if (infix[z] == ' ')
+                    { continue;}
+                    else
+                    {
+                        last_not_space = infix[z];
+                        break;
+                    }
+                }
+                if (infix[i] == '-' && (i == 0 || infix[i - 1] == '(' || last_not_space == '='))
                 {
                     infix[i] = '~';
                 }
@@ -203,7 +214,7 @@ int strIsComplex(char *str)
             return 0;
         }
     }
-    if (str[strlen(str)-1] == 'i')
+    if (str[strlen(str)-1] == 'i' || str[strlen(str)-1] == 'j')
     {
         return 1;
     }
@@ -247,6 +258,8 @@ char* GetType(char* value)
     {  return "FUNCTION"; }
     if ((strcmp(value, "phase") == 0))
     {  return "FUNCTION"; }
+    if ((strcmp(value, "~") == 0))
+    {  return "FUNCTION"; }
 
     // operators
     if ((strcmp(value, "+") == 0))
@@ -261,6 +274,7 @@ char* GetType(char* value)
     {  return "OPERATOR"; }
     if ((strcmp(value, "^") == 0))
     {  return "OPERATOR"; }
+
 
     // Variables
     if (strIsAlpha(value))
