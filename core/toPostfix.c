@@ -238,6 +238,8 @@ char* GetType(char* value)
     { return "FUNCTION"; }
     if ((strcmp(value, "sin") == 0))
     { return "FUNCTION"; }
+    if ((strcmp(value, "tg") == 0))
+    { return "FUNCTION"; }
     if ((strcmp(value, "sqrt") == 0))
     {  return "FUNCTION"; }
     if ((strcmp(value, "log") == 0))  // log by 2

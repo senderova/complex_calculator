@@ -66,3 +66,13 @@
 294	521	7063719531808874	complex_calculator.exe	6701c4dd7de6b001
 2	137	7063724677693266	CMakeFiles/complex_calculator.dir/core/varibleManager.c.obj	335b1971c3997ac6
 137	282	7063724679076920	complex_calculator.exe	6701c4dd7de6b001
+1	154	7063768862275570	CMakeFiles/complex_calculator.dir/core/operations.c.obj	66bdd171d8605aa5
+154	312	7063768863774541	complex_calculator.exe	6701c4dd7de6b001
+1	121	7063769699485602	CMakeFiles/complex_calculator.dir/core/operations.c.obj	66bdd171d8605aa5
+122	255	7063769700752850	complex_calculator.exe	6701c4dd7de6b001
+2	115	7063771162296229	CMakeFiles/complex_calculator.dir/core/operations.c.obj	66bdd171d8605aa5
+116	255	7063771163618087	complex_calculator.exe	6701c4dd7de6b001
+2	122	7063771462321082	CMakeFiles/complex_calculator.dir/core/operations.c.obj	66bdd171d8605aa5
+122	288	7063771463939693	complex_calculator.exe	6701c4dd7de6b001
+1	125	7063773778021857	CMakeFiles/complex_calculator.dir/core/toPostfix.c.obj	2999659def92b4be
+126	264	7063773779342933	complex_calculator.exe	6701c4dd7de6b001

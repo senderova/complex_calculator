@@ -44,7 +44,7 @@ Complex* unary_operations(Token *token, Complex *x) {
     }
     if (strcmp(token->value, "abs") == 0)
     {
-        x->real = abs(x->real);
+        x->real = fabs(x->real);
         x->imag = 0;
         return x;
     }
@@ -61,7 +61,8 @@ Complex* unary_operations(Token *token, Complex *x) {
     }
     if (strcmp(token->value, "imag") == 0)
     {
-        x->real = 0;
+        x->real = x->imag;
+        x->imag = 0;
         return x;
     }
     if (strcmp(token->value, "mag") == 0)
