@@ -5,19 +5,23 @@
 
 void PrintComplex(Complex value)
 {
-    printf("%lf ", value.real);
-    if (value.imag > 0)
-    {
-        printf("+ %lfi\n", value.imag);
+    if (value.real != 0) {
+        printf("%lf ", value.real);
     }
-    else if (value.imag < 0)
+    if (value.imag > 0 && value.real != 0)
     {
-        printf("- %lfi\n", value.imag);
+        printf("+ ");
     }
-    else
+    if (value.imag != 0)
     {
-        printf("\n");
+        printf("%lfi", value.imag);
     }
+    if (value.real == 0 && value.imag == 0)
+    {
+        printf("%lf ", value.real);
+    }
+
+    printf("\n");
 }
 
 Complex ComplexRelated(Complex value)

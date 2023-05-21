@@ -157,7 +157,7 @@ Complex* eval(Token *token_pool, int *num_of_vars, Variable pool[*num_of_vars])
             if (pool[i].expression.value.real != 0.123456789 && pool[i].expression.value.imag != 0.123456789)
             {
                 pool[i].expression.is_calculated = 1;
-                printf("Variable <%s> has been evaluated!\n", pool[i].name);
+                // printf("Variable <%s> has been evaluated!\n", pool[i].name); #todo
                 all_calculated = 0;
             }
         }
@@ -190,7 +190,7 @@ Complex* eval(Token *token_pool, int *num_of_vars, Variable pool[*num_of_vars])
             if (index != -1)
             {
                 // Variable exists
-                printf("Variable <%s> already exists, it will be overwrite\n", token_pool[0].value);
+                // printf("Variable <%s> already exists, it will be overwrite\n", token_pool[0].value); #todo
                 pool[index].expression.is_calculated = 0;
                 pool[index].expression.exp = token_pool + 2;
                 pool[index].expression.value = CalculateExpression(pool[index].expression, *num_of_vars, pool);

@@ -62,3 +62,7 @@
 107	231	7062863263497601	complex_calculator.exe	6701c4dd7de6b001
 2	124	7062863656534942	CMakeFiles/complex_calculator.dir/core/toPostfix.c.obj	2999659def92b4be
 124	267	7062863657911060	complex_calculator.exe	6701c4dd7de6b001
+2	293	7063719529659508	CMakeFiles/complex_calculator.dir/core/complex.c.obj	d652abc7036eddfa
+294	521	7063719531808874	complex_calculator.exe	6701c4dd7de6b001
+2	137	7063724677693266	CMakeFiles/complex_calculator.dir/core/varibleManager.c.obj	335b1971c3997ac6
+137	282	7063724679076920	complex_calculator.exe	6701c4dd7de6b001
